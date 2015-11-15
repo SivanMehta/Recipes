@@ -154,7 +154,8 @@ var processRecipe = function(index)
 
         // add an image of the recipe
         var recipe_image = document.createElement("img");
-        recipe_image.src = recipe_data.smallImageUrls[0].substring(0, recipe_data.smallImageUrls[0].length - 2) + '500';
+        var image_url = recipe_data.smallImageUrls[0].substring(0, recipe_data.smallImageUrls[0].length - 2) + '500';
+        recipe_image.src = image_url;
 
         // add the actual ingredients
         for(var i = 0; i < recipe_data.ingredients.length; i ++)
@@ -206,7 +207,31 @@ var processRecipe = function(index)
         {
             $("#share").click
             (
-                console.log("here")
+                function()
+                {
+                    var ingredient_query = "";
+
+                    for(var i = 0; i < recipe_data.ingredients.length; i ++)
+                    {
+                        ingredient_query += "&ingredients=" + recipe_data.ingredients[i];
+                    }
+
+                    $.ajax({
+                        url : "/recipes/" + recipe_data.recipeName
+                                          + "/" + ingredient_query,
+                        type: 'POST',
+
+                        dataType: "json",
+                        contentType: 'application/json',
+                        data: currentRecipe,
+
+                        success: function(result)
+                        {
+                            alert(result.status);
+                        }
+
+                    });
+                }
             )
         }
         );
