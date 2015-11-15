@@ -1,1 +1,17 @@
-this is the recipes page
+<html>
+<head>
+    <% include partials/header %>
+</head>
+<body>
+    <div class = "container">
+        <h1>Here a list of the saved recipes!</h1>
+        <ul>
+            <% var recipes = Object.keys(recipes); %>
+            <% for(var i = 0; i < recipes.length; i++) { %>
+                <% var recipe_title = recipes[i].split("/")[2] %>
+                <li><a href = "<%=recipes[i] %>"><%= recipe_title %></a></li>
+            <% } %>
+        </ul>
+    </div>
+</body>
+</html>

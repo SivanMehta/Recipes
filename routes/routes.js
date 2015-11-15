@@ -5,7 +5,8 @@ var saved_recipes = {};
 exports.init = function(app)
 {
     app.get("/", landing);
-    app.get("/recipes", recipes);
+    app.get("/recipes", recipe_list);
+    app.get("/saved/:recipe_title", recipe)
     app.get("/search", search);
     app.post("/recipes/*", process_search);
 }
@@ -15,9 +16,14 @@ landing = function(request, response)
     response.render("index");
 }
 
-recipes = function(request, response)
+recipe_list = function(request, response)
 {
-    response.render("recipes");
+    response.render("recipes", {recipes: saved_recipes});
+}
+
+recipe = function(request, response)
+{
+    response.render("index");
 }
 
 search = function(request, response)
@@ -45,7 +51,6 @@ process_search = function(request, response)
     saved_recipes[recipe_name] = {ingredients: recipe_data.ingredients, 
                                   image_url: recipe_data.image_url};
 
-    console.log(saved_recipes);
 
     response.json({status: "succeeded!"});
 }
