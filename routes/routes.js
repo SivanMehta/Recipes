@@ -1,14 +1,20 @@
 var querystring = require('querystring');
 
-var saved_recipes = {};
+// start with a starter recipe so we don't have to query the API on every test.
+var saved_recipes = {
+    "/recipes/Jamba Juice Tropical Tease Smoothie/": {
+        ingredients: ["pineapple juice", "bananas", "mango", "nonfat vanilla frozen yogurt", "ice"],
+        image_url: "https://lh3.googleusercontent.com/Vgm7v7D_SSgkOO-MMN8W7Niigk2Ce6s-znf-OmPYKaY9-NDe97uzuESE9FmpF134U3pk4Cd8H8OCmFzyKqnsgw=s500"
+    }
+};
 
 exports.init = function(app)
 {
     app.get("/", landing);
     app.get("/recipes", recipe_list);
-    app.get("/saved/:recipe_title", recipe)
-    app.get("/search", search);
+    app.get("/recipes/:recipe_title", individual_recipe)
     app.post("/recipes/*", process_search);
+    app.get("/search", search);
 }
 
 landing = function(request, response)
@@ -21,9 +27,13 @@ recipe_list = function(request, response)
     response.render("recipes", {recipes: saved_recipes});
 }
 
-recipe = function(request, response)
+individual_recipe = function(request, response)
 {
-    response.render("index");
+    var parameter = '/recipes/' + request.params.recipe_title + "/";
+    var recipe_data = saved_recipes[parameter];
+
+    response.render("recipe", {recipe_data : recipe_data,
+                               recipe_title: request.params.recipe_title });
 }
 
 search = function(request, response)
@@ -50,7 +60,6 @@ process_search = function(request, response)
 
     saved_recipes[recipe_name] = {ingredients: recipe_data.ingredients, 
                                   image_url: recipe_data.image_url};
-
 
     response.json({status: "succeeded!"});
 }
