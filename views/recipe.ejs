@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <% include partials/header %>
+    </head>
+
+    <div class = "container">
+        <div class = "row">
+            <div class = "col s12 l6">
+                <ul class="collection with-header">
+                    <li class="collection-header"><h4><%= recipe_title %></h4></li>
+                    <% for(var i = 0; i < recipe_data.ingredients.length; i++) { %>
+                        <li class="collection-item"><%= recipe_data.ingredients[i] %></li>
+                    <% } %>
+                </ul>
+            </div>
+            <div class = "col s12 l6">
+                <img src="<%= recipe_data.image_url %>">
+            </div>
+        </div>
+    </div>
+</html>
