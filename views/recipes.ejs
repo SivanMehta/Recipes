@@ -9,7 +9,7 @@
             <% var recipes = Object.keys(recipes); %>
             <% for(var i = 0; i < recipes.length; i++) { %>
                 <% var recipe_title = recipes[i].split("/")[2] %>
-                <li><a href = "<%=recipes[i] %>"><%= recipe_title %></a></li>
+                <li><a href = "/recipes/<%= recipe_title %>"><%= recipe_title %></a></li>
             <% } %>
         </ul>
     </div>
