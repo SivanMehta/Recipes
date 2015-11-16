@@ -4,6 +4,16 @@
     <% include partials/header %>
 </head>
 <body>
+    <nav>
+        <div class = "container">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo right">Recipe Generator</a>
+                <div class = "col s12">
+                    <a href="#!" class="breadcrumb">Search</a>
+                </div>
+            </div>
+        </div>
+    </nav>
     <div class = "container">
         <h1 id = "title">What can I make?</h1>
             <div id = "input" class = "row">
@@ -41,7 +51,7 @@
             </div>
             <a class = 'btn blue' id = 'refresh'><i class="material-icons left">cached</i>Start Over</a>
         <br />
-        <p>Recipe search powered by <a href='http://www.yummly.com/recipes'><img alt='Yummly' id = "logo" src='http://static.yummly.com/api-logo.png'/></a></p>
+        <% include partials/footer %>
         <div id = "responseArea">
         </div>
 
