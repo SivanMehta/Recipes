@@ -3,33 +3,40 @@
     <% include partials/header %>
 </head>
 <body>
-    <nav>
-        <div class = "container">
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo right">Recipe Generator</a>
-                <div class = "col s12">
-                    <a href="/" class="breadcrumb">Home</a> > 
-                    <a href="#!" class="breadcrumb">Recipes</a>
+    <header>
+        <nav class = "grey">
+            <div class = "container">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo right">Recipe Generator</a>
+                    <div class = "col s12">
+                        <a href="/" class="breadcrumb">Home</a> > 
+                        <a href="#!" class="breadcrumb">Recipes</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
-    <div class = "container">
-        <% var recipe_titles = Object.keys(recipes); %>
+        </nav>
+    </header>
+    <main>
+        <div class = "container">
+            <% var recipe_titles = Object.keys(recipes); %>
 
-            <ul class = "collection">
-                <% for(var i = 0; i < recipe_titles.length; i++) { %>
-                <% var recipe_title = recipe_titles[i].split("/")[2]; %>
-                <a href = "<%= recipe_titles[i] %>">
-                    <li class = "collection-item avatar">
-                        <img src="<%= recipes[recipe_titles[i]].image_url %>" alt="" class="circle">
-                        <span class = "title"><%= recipe_title %></p>
-                    </li>
-                </a>
+                <ul class = "collection">
+                    <% for(var i = 0; i < recipe_titles.length; i++) { %>
+                    <% var recipe_title = recipe_titles[i].split("/")[2]; %>
+                    <a href = "<%= recipe_titles[i] %>">
+                        <li class = "collection-item avatar">
+                            <img src="<%= recipes[recipe_titles[i]].image_url %>" alt="" class="circle">
+                            <span class = "title"><%= recipe_title %></p>
+                        </li>
+                    </a>
 
-                <% } %>
-            </ul>
+                    <% } %>
+                </ul>
+            </div>
         </div>
-    </div>
+    </main>
+    <footer>
+        <% include partials/footer %>
+    </footer>
 </body>
 </html>
