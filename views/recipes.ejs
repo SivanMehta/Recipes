@@ -15,14 +15,22 @@
         </div>
     </nav>
     <div class = "container">
-        <h1>Here a list of the saved recipes!</h1>
-        <ul>
-            <% var recipes = Object.keys(recipes); %>
-            <% for(var i = 0; i < recipes.length; i++) { %>
-                <% var recipe_title = recipes[i].split("/")[2] %>
-                <li><a href = "/recipes/<%= recipe_title %>"><%= recipe_title %></a></li>
-            <% } %>
-        </ul>
+        <h1>Here's a list of the saved recipes!</h1>
+        <% var recipe_titles = Object.keys(recipes); %>
+
+            <ul class = "collection">
+                <% for(var i = 0; i < recipe_titles.length; i++) { %>
+                <% var recipe_title = recipe_titles[i].split("/")[2]; %>
+                <a href = "<%= recipe_titles[i] %>">
+                    <li class = "collection-item avatar">
+                        <img src="<%= recipes[recipe_titles[i]].image_url %>" alt="" class="circle">
+                        <span class = "title"><%= recipe_title %></p>
+                    </li>
+                </a>
+
+                <% } %>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
