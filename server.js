@@ -41,7 +41,7 @@ var httpServer = require('http').createServer(app);
 // // The server socket.io code is in the socketio directory.
 // require('./socketio/serverSocket.js').init(sio);
 ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
-port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+port = process.env.OPENSHIFT_NODEJS_PORT || 50000;
 
 //  Start listening on the specific IP and PORT
 app.listen(port, ipaddress, function() {
