@@ -20,8 +20,8 @@
   "dependencies": {
     "express": "~3.4.4",
     "morgan": "^2.5.1",
-    "ejs": "^2.5.1",
-  },
+    "ejs": "^2.5.1"
+    },
   "devDependencies": {},
   "bundleDependencies": [],
 
