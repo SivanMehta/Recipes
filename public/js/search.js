@@ -228,7 +228,7 @@ var processRecipe = function(index)
 
                         success: function(result)
                         {
-                            alert(result.status);
+                            alert(result.saved_to);
                         },
                         error: function(xhr, message, statusText)
                         {

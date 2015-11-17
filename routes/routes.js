@@ -61,5 +61,5 @@ process_search = function(request, response)
     saved_recipes[recipe_name] = {ingredients: recipe_data.ingredients, 
                                   image_url: recipe_data.image_url};
 
-    response.json({status: "succeeded!"});
+    response.json({saved_to: recipe_name});
 }
