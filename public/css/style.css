@@ -1,5 +1,4 @@
 img:not(#logo)
 {
     float: right;
-    min-width: 25%;
 }
