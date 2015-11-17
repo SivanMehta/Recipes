@@ -1,16 +1,35 @@
 {
-  "name": "recipe_generator",
+  "name": "Recipe-Generator",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "node server",
-    "start": "node server.js"
+  "description": "Recipe Generator for proof of concept",
+  "keywords": [
+    "OpenShift",
+    "Node.js",
+    "application",
+    "openshift",
+    "recipe"
+  ],
+  "author": {
+    "name": "Sivan Mehta",
+    "email": "skmehta@andrew.cmu.edu.org",
   },
-  "author": "Sivan Mehta",
-  "license": "ISC",
+  "homepage": "https://github.com/SivanMehta/recipe-generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openshift/origin-server"
+  },
+
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+
   "dependencies": {
-    "morgan": "^1.6.1",
-    "ejs": "^1.0.0",
-    "express": "^2.5.1"
-  }
+    "express": "~3.4.4"
+  },
+  "devDependencies": {},
+  "bundleDependencies": [],
+
+  "private": true,
+  "main": "server.js"
+}
