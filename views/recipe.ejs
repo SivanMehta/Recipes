@@ -1,37 +1,46 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <% include partials/header %>
-    </head>
-
-    <nav>
-        <div class = "container">
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo right">Recipe Generator</a>
-                <div class = "col s12">
-                    <a href="/" class="breadcrumb">Home</a> > 
-                    <a href="/recipes" class="breadcrumb">Recipes</a> >
-                    <a href="#" class="breadcrumb"><%= recipe_title %></a>
+<head>
+    <% include partials/header %>
+</head>
+<body>
+    <header>
+        <nav class = "grey">
+            <div class = "container">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo right">Recipe Generator</a>
+                    <div class = "col s12">
+                        <a href="/" class="breadcrumb">Home</a> > 
+                        <a href="/recipes" class="breadcrumb">Recipes</a> >
+                        <a href="#" class="breadcrumb"><%= recipe_title %></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <br />
 
-    <div class = "container">
-        <div class = "row">
-            <div class = "col s12 l6">
-                <h4><%= recipe_title %></h4>
-                <ul class="collection with-header">
-                    <% for(var i = 0; i < recipe_data.ingredients.length; i++) { %>
-                        <li class="collection-item"><%= recipe_data.ingredients[i] %></li>
-                    <% } %>
-                </ul>
-            </div>
-            <div class = "col s12 l6">
-                <img src="<%= recipe_data.image_url %>">
+    <main>
+        <div class = "container">
+            <div class = "row">
+                <div class = "col s12 l6">
+                    <h4><%= recipe_title %></h4>
+                    <ul class="collection with-header">
+                        <% for(var i = 0; i < recipe_data.ingredients.length; i++) { %>
+                            <li class="collection-item"><%= recipe_data.ingredients[i] %></li>
+                        <% } %>
+                    </ul>
+                </div>
+                <div class = "col s12 l6">
+                    <img src="<%= recipe_data.image_url %>">
+                </div>
             </div>
         </div>
-    </div>
+    </main>
+    <footer>
+        <% include partials/footer %>
+    </footer>
+
+</body>
 </html>
